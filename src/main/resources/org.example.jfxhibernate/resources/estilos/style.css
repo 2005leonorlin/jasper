@@ -1,0 +1,40 @@
+.root {
+    -fx-background-color: #b6e2fa;
+}
+.stack-pane {
+    -fx-border-color: #fd68b2;
+    -fx-border-width: 3px;
+    -fx-border-radius: 5px;
+}
+
+.label {
+    -fx-text-fill: #FF69B4;
+}
+
+.text-field, .password-field {
+    -fx-background-color: #f8c8e1;
+
+
+    -fx-border-color: #fd68b2;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+.button {
+    -fx-background-color: #ff69b4;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, #fdfcfc, 5, 0.5, 0, 2);
+    -fx-border-color: #ff69b4;
+    -fx-border-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: #ff4d93;
+}
+
+
+.label {
+    -fx-text-fill: #FF69B4;
+    -fx-effect: dropshadow(gaussian, #ffffff, 5, 0.5, 0, 2);
+}
+
+

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../estilos/administrador-css/crear-pelicula.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.jfxhibernate.controller.admistrador.CrearPeliculaController">
+   <top>
+      <MenuBar fx:id="menucrearpeli" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Close">
+               <items>
+                  <MenuItem fx:id="menuCerrar" mnemonicParsing="false" onAction="#cerrar" text="Cerrar" />
+                  <MenuItem fx:id="menuMisPeliculas" mnemonicParsing="false" onAction="#mispeliculas" text="Mis peliculas" />
+                  <MenuItem fx:id="mnIrLogin" mnemonicParsing="false" onAction="#irlogin" text="Ir Login " />
+               </items></Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="crearpelicula" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="600.0" text="CREAR PELICULA">
+               <font>
+                  <Font name="HP Simplified Hans Regular" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <HBox prefHeight="290.0" prefWidth="600.0">
+               <children>
+                  <StackPane prefHeight="290.0" prefWidth="259.0">
+                     <children>
+                        <ImageView fx:id="imagen" fitHeight="279.0" fitWidth="260.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </StackPane>
+                  <VBox prefHeight="298.0" prefWidth="330.0">
+                     <children>
+                        <Label fx:id="ttc" text="Titulo" />
+                        <TextField fx:id="txtTituloP" />
+                        <Label fx:id="ggc" text="Genero">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                        <ComboBox fx:id="comboGenero" prefHeight="25.0" prefWidth="347.0" />
+                        <Label fx:id="aac" text="Año">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                        <Spinner fx:id="spinnerAño" prefHeight="25.0" prefWidth="353.0" />
+                        <Label fx:id="ddc" text="Director">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="txtDirector" />
+                        <Label fx:id="dec" text="Descripcion">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                        <TextArea fx:id="txtDescripcion" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+            <FlowPane alignment="CENTER_RIGHT" hgap="10.0" prefHeight="64.0" prefWidth="600.0">
+               <children>
+                  <FlowPane prefHeight="43.0" prefWidth="440.0">
+                     <children>
+                        <Button fx:id="btnfotodeescritorio" mnemonicParsing="false" onAction="#selectfotodeescritorio" text="Foto de escritorio " />
+                     </children>
+                  </FlowPane>
+                  <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" text="Guardar" />
+                  <Button fx:id="btnCancelarPeli" mnemonicParsing="false" onAction="#cancelarPeli" text="Cancelar" />
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </FlowPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

@@ -1,0 +1,61 @@
+.root {
+    -fx-background-color: #b6e2fa;
+}
+
+
+.menu-bar {
+    -fx-background-color: #ffbbed;
+}
+
+.menu-bar .menu {
+    -fx-text-fill: #ffbbed;
+}
+
+.menu-bar .menu-item {
+    -fx-text-fill: white;
+}
+.label#modcopia {
+    -fx-text-fill: #ff69b4;
+    -fx-font-size: 28px;
+    -fx-effect: dropshadow(gaussian, #ffffff, 5, 0.5, 0, 2);
+    -fx-alignment: center;
+}
+
+
+.label {
+    -fx-text-fill: #000000;
+}
+
+
+.label#tt, .label#ss, .label#ee {
+    -fx-font-size: 14px;
+    -fx-text-fill: #ff69b4;
+}
+
+
+.text-field, .combo-box {
+    -fx-background-color: #f8c8e1;
+    -fx-border-color: #fd68b2;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+
+.button {
+    -fx-background-color: #ff69b4;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, #fdfcfc, 5, 0.5, 0, 2);
+    -fx-border-color: #ff69b4;
+    -fx-border-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: #ff4d93;
+}
+
+
+.stack-pane {
+    -fx-border-color: #fd68b2;
+    -fx-border-width: 3px;
+    -fx-border-radius: 5px;
+}

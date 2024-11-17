@@ -1,0 +1,81 @@
+
+.root {
+    -fx-background-color: #b6e2fa;
+}
+
+.menu-bar {
+    -fx-background-color: #ffffff;
+}
+
+.menu-bar .menu {
+    -fx-text-fill: white;
+}
+
+.menu-bar .menu-item {
+    -fx-text-fill: white;
+}
+
+.label {
+    -fx-text-fill: #ff69b4;
+}
+
+.label#mispeli{
+    -fx-text-fill: #ff69b4;
+    -fx-font-size: 28px;
+    -fx-effect: dropshadow(gaussian, #ffffff, 5, 0.5, 0, 2);
+    -fx-alignment: center;
+}
+
+
+
+
+.table-view {
+    -fx-background-color: #f8c8e1;
+    -fx-border-color: #fd68b2;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+}
+
+
+.table-view .table-column-header {
+    -fx-background-color: #ff69b4;
+    -fx-text-fill: white;
+}
+
+
+.button {
+    -fx-background-color: #ff69b4;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, #fdfcfc, 5, 0.5, 0, 2);
+    -fx-border-color: #ff69b4;
+    -fx-border-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: #ff4d93;
+}
+
+
+.flow-pane {
+    -fx-background-color: #f8c8e1;
+    -fx-border-color: #fd68b2;
+}
+
+
+.label[id="info"] {
+    -fx-text-fill: #ff69b4;
+    -fx-font-size: 12px;
+}
+
+
+.table-view .cell {
+    -fx-background-color: white;
+    -fx-border-color: #fd68b2;
+    -fx-border-width: 1px;
+}
+
+
+.table-column {
+    -fx-alignment: CENTER;
+    -fx-text-fill: #000000;
+}

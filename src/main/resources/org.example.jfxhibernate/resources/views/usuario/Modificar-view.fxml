@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../estilos/usuario-css/modificar-usuario.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.jfxhibernate.controller.usuario.ModificarController">
+   <top>
+      <MenuBar fx:id="menu" prefWidth="158.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Close">
+            <items>
+              <MenuItem fx:id="mnCerrarModificar" mnemonicParsing="false" onAction="#cerrarmodificar" text="Cerrar" />
+                  <MenuItem fx:id="mnvercopias" mnemonicParsing="false" onAction="#verCopias" text="Ver Copias" />
+                  <MenuItem fx:id="mniralogin" mnemonicParsing="false" onAction="#irlogin" text="Login" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="modcopia" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="604.0" text="MODIFICAR COPIA ">
+               <font>
+                  <Font name="HP Simplified Hans Regular" size="24.0" />
+               </font>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </Label>
+            <HBox prefHeight="315.0" prefWidth="600.0">
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="imagemodificar" fitHeight="244.0" fitWidth="283.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </StackPane>
+                  <VBox alignment="CENTER_LEFT" prefHeight="286.0" prefWidth="307.0">
+                     <children>
+                        <Label fx:id="tt" prefHeight="35.0" prefWidth="130.0" text="Titulo" />
+                        <TextField fx:id="txttitulomodificar" />
+                        <Label fx:id="ss" text="Soporte ">
+                           <padding>
+                              <Insets top="15.0" />
+                           </padding>
+                        </Label>
+                        <ComboBox fx:id="ComboSoporteModi" prefHeight="26.0" prefWidth="280.0" />
+                        <Label fx:id="ee" text="Estado">
+                           <padding>
+                              <Insets top="15.0" />
+                           </padding>
+                        </Label>
+                        <ComboBox fx:id="ComboEstadomodi" prefHeight="26.0" prefWidth="273.0" />
+                     </children>
+                     <padding>
+                        <Insets left="15.0" right="15.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+            <FlowPane alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="15.0" prefHeight="78.0" prefWidth="600.0">
+               <children>
+                  <Button fx:id="btnGuardarModificar" mnemonicParsing="false" onAction="#guardarmodificar" text="Guardar" />
+                  <Button fx:id="btnatrasModificar" mnemonicParsing="false" onAction="#atrasmodificar" text="Atras" />
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </FlowPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

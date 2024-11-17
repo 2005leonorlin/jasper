@@ -1,0 +1,75 @@
+
+.root {
+    -fx-background-color: #b6e2fa;
+}
+.label {
+    -fx-text-fill: #fd68b2;
+}
+
+
+.menu-bar {
+    -fx-background-color: #ffffff;
+}
+
+.menu-bar .menu {
+    -fx-text-fill: white;
+}
+
+.menu-bar .menu-item {
+    -fx-text-fill: white;
+}
+
+.label#copiapeli{
+    -fx-text-fill: #ff69b4;
+    -fx-font-size: 28px;
+    -fx-effect: dropshadow(gaussian, #ffffff, 5, 0.5, 0, 2);
+    -fx-alignment: center;
+}
+
+
+
+.label[id="ttcopias"]{
+    -fx-font-size: 24px;
+    -fx-text-fill: #ff69b4;
+}
+
+
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #fd68b2;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
+
+.table-column {
+    -fx-text-fill: #ff69b4;
+    -fx-font-size: 14px;
+}
+
+
+.button {
+    -fx-background-color: #ff69b4;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, #fdfcfc, 5, 0.5, 0, 2);
+    -fx-border-color: #ff69b4;
+    -fx-border-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: #ff4d93;
+}
+
+
+.flow-pane {
+    -fx-background-color: transparent;
+}
+
+.flow-pane .button {
+    -fx-background-color: #ff69b4;
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+}
+
+.flow-pane .button:hover {
+    -fx-background-color: #ff4d93;
+}

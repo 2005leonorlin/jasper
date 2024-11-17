@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../estilos/style.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.jfxhibernate.controller.LoginController">
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane prefHeight="400.0" prefWidth="221.0">
+               <children>
+                  <ImageView fx:id="imglogo" fitHeight="399.0" fitWidth="229.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../media/Fondo.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+            <VBox fx:id="log" alignment="CENTER" prefHeight="400.0" prefWidth="381.0" stylesheets="@../estilos/style.css">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="375.0" text="LEOFLIX">
+                     <font>
+                        <Font name="Cooper Black" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="logo" fitHeight="64.0" fitWidth="108.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../fotos/logo.jpg" />
+                     </image>
+                  </ImageView>
+                  <GridPane hgap="20.0" prefHeight="82.0" prefWidth="300.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="144.0" minWidth="10.0" prefWidth="111.0" />
+                      <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0" prefWidth="218.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField fx:id="txtEmail" prefHeight="25.0" prefWidth="149.0" text="juanperez" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets right="50.0" />
+                           </GridPane.margin></TextField>
+                        <PasswordField fx:id="txtPassword" prefHeight="25.0" prefWidth="240.0" text="password123" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="50.0" top="20.0" />
+                           </GridPane.margin></PasswordField>
+                        <ImageView fx:id="ini" fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../media/acceso.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="bloc" fitHeight="22.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                           <image>
+                              <Image url="@../media/bloquear.png" />
+                           </image>
+                           <GridPane.margin>
+                              <Insets top="20.0" />
+                           </GridPane.margin>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets right="20.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <FlowPane alignment="TOP_RIGHT" hgap="20.0" prefHeight="58.0" prefWidth="369.0">
+                     <children>
+                        <Button fx:id="btnEnter" mnemonicParsing="false" onAction="#enter" text="Enter">
+                           <FlowPane.margin>
+                              <Insets top="10.0" />
+                           </FlowPane.margin></Button>
+                        <Button fx:id="btnExit" mnemonicParsing="false" onAction="#exit" text="Exit">
+                           <FlowPane.margin>
+                              <Insets top="10.0" />
+                           </FlowPane.margin></Button>
+                     </children>
+                     <padding>
+                        <Insets right="10.0" top="10.0" />
+                     </padding>
+                  </FlowPane>
+                  <Label fx:id="info" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

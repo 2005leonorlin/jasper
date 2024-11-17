@@ -1,0 +1,67 @@
+.root {
+    -fx-background-color: #b6e2fa;
+}
+
+
+.stack-pane {
+    -fx-border-color: #fd68b2;
+    -fx-border-width: 3px;
+    -fx-border-radius: 5px;
+}
+
+
+.menu-bar {
+    -fx-background-color: #ffbbed;
+
+}
+
+
+.menu-bar .menu .menu-item  {
+    -fx-text-fill: white;
+}
+
+
+.label#verpeli {
+    -fx-text-fill: #ff69b4;
+    -fx-font-size: 28px;
+    -fx-effect: dropshadow(gaussian, #ffffff, 5, 0.5, 0, 2);
+    -fx-alignment: center;
+}
+
+
+.label {
+    -fx-text-fill: #000000;
+}
+.label#ttv, .label#ggv, .label#aav, .label#ddv, .label#dev{
+    -fx-font-size: 14px;
+    -fx-text-fill: #ff69b4;
+}
+
+
+.text-field {
+    -fx-background-color: #f8c8e1;
+    -fx-border-color: #fd68b2;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+
+.text-area {
+    -fx-background-color: #fabddd;
+    -fx-border-color: #fd68b2;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+
+.button {
+    -fx-background-color: #ff69b4;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, #fdfcfc, 5, 0.5, 0, 2);
+    -fx-border-color: #ff69b4;
+    -fx-border-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: #ff4d93;
+}
