@@ -183,7 +183,7 @@ public class CopiaPeliController implements Initializable {
     }
 
     /**
-     * Genera un informe con los datos de la copia  que  seleccionas..
+     * Genera un informe con los datos de la copia  que  seleccionas.
      * @param actionEvent
      */
     @javafx.fxml.FXML
