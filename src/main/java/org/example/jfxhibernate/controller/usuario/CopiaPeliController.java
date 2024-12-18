@@ -219,8 +219,7 @@ public class CopiaPeliController implements Initializable {
 
     /**
      * Muestra una alerta con el título y mensaje especificados.
-     * @param titulo
-     * @param mensaje
+
      */
 
     private void mostrarAlerta(String titulo, String mensaje) {
