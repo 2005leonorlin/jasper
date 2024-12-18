@@ -4,6 +4,10 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.view.JasperViewer;
 import org.example.jfxhibernate.HelloApplication;
 import org.example.jfxhibernate.HibernateUtil;
 import org.example.jfxhibernate.Session;
@@ -12,6 +16,7 @@ import org.example.jfxhibernate.dao.PeliculaDao;
 import org.example.jfxhibernate.models.Pelicula;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -47,6 +52,12 @@ public class PeliculasController implements Initializable {
     private MenuBar menu;
     @javafx.fxml.FXML
     private Label mispeli;
+    @javafx.fxml.FXML
+    private Button btnListadoCompleto;
+    @javafx.fxml.FXML
+    private Button btnpelimasdeunacopia;
+    @javafx.fxml.FXML
+    private Button btnCopiamalestado;
 
     /**
      * Inicializa el controlador de la vista de películas.
@@ -165,5 +176,79 @@ public class PeliculasController implements Initializable {
             alert.showAndWait();
         }
 
+    }
+
+    /**
+     * Genera un informe con el listado completo de películas.
+     * @param actionEvent
+     */
+
+    @javafx.fxml.FXML
+    public void listadocompletopeli(ActionEvent actionEvent) {
+        try {
+            Connection connection = HibernateUtil.getSessionFactory().openSession().doReturningWork(
+                    connectionProvider -> connectionProvider
+            );
+            JasperPrint jasperPrint = JasperFillManager.fillReport("ListPeli.jasper", null, connection);
+           JasperViewer.viewReport(jasperPrint, false);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error al generar el informe");
+            alert.setHeaderText("No se pudo generar el informe de películas.");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+
+    }
+
+    /**
+     * Genera un informe con las películas que tienen más de una copia.
+     * @param actionEvent
+     */
+
+    @javafx.fxml.FXML
+    public void pelimasdeunacopia(ActionEvent actionEvent) {
+        try {
+            Connection connection = HibernateUtil.getSessionFactory().openSession().doReturningWork(
+                    connectionProvider -> connectionProvider
+            );
+            JasperPrint jasperPrint = JasperFillManager.fillReport("PeliConMasDeUnaCopia" +
+                    ".jasper", null, connection);
+            JasperViewer.viewReport(jasperPrint, false);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error al generar el informe");
+            alert.setHeaderText("No se pudo generar el informe de películas.");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+    }
+
+    /**
+     * Genera un informe con las películas que tienen copias en mal estado.
+     * @param actionEvent
+     */
+
+    @javafx.fxml.FXML
+    public void copiamalestado(ActionEvent actionEvent) {
+        try {
+            Connection connection = HibernateUtil.getSessionFactory().openSession().doReturningWork(
+                    connectionProvider -> connectionProvider
+            );
+            JasperPrint jasperPrint = JasperFillManager.fillReport("PeliMalEstado.jasper", null, connection);
+            JasperViewer.viewReport(jasperPrint, false);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error al generar el informe");
+            alert.setHeaderText("No se pudo generar el informe de películas.");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
     }
 }

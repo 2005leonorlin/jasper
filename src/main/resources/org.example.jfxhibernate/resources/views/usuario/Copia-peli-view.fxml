@@ -51,6 +51,7 @@
                   <Button fx:id="btnAñadir" mnemonicParsing="false" onAction="#añadir" text="Añadir" />
                   <Button fx:id="brnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="21.0" prefWidth="70.0" text="Eliminar" />
                   <Button fx:id="btnDetalle" mnemonicParsing="false" onAction="#detalle" prefHeight="22.0" prefWidth="69.0" text="Detalle" />
+                  <Button fx:id="btnvercopiaselect" mnemonicParsing="false" onAction="#verCopiaselect" text="Información detallada de la Copia" />
                </children>
                <padding>
                   <Insets right="10.0" top="10.0" />

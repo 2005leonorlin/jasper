@@ -4,6 +4,11 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 import org.example.jfxhibernate.HelloApplication;
 import org.example.jfxhibernate.HibernateUtil;
 import org.example.jfxhibernate.Session;
@@ -11,9 +16,15 @@ import org.example.jfxhibernate.dao.CopiaDao;
 import org.example.jfxhibernate.models.Copia;
 import org.example.jfxhibernate.models.Pelicula;
 
+import javax.sql.DataSource;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.HashMap;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import static org.example.jfxhibernate.Session.currentPelicula;
 
 /**
  * Controlador para la vista de copias de películas.
@@ -21,7 +32,7 @@ import java.util.ResourceBundle;
 public class CopiaPeliController implements Initializable {
 
     @javafx.fxml.FXML
-    private TableColumn<Copia,String> clEstado;
+    private TableColumn<Copia, String> clEstado;
     @javafx.fxml.FXML
     private Button brnEliminar;
     @javafx.fxml.FXML
@@ -29,7 +40,7 @@ public class CopiaPeliController implements Initializable {
     @javafx.fxml.FXML
     private Button btnAñadir;
     @javafx.fxml.FXML
-    private TableColumn <Copia, String> clTitulo;
+    private TableColumn<Copia, String> clTitulo;
     @javafx.fxml.FXML
     private TableView<Copia> table;
 
@@ -40,11 +51,19 @@ public class CopiaPeliController implements Initializable {
     private MenuItem menuLogin;
     @javafx.fxml.FXML
     private Button btnDetalle;
+    @javafx.fxml.FXML
+    private Label copiapeli;
+    @javafx.fxml.FXML
+    private Menu cerrarcopaispeli;
+    @javafx.fxml.FXML
+    private MenuBar menucopiaa;
+    @javafx.fxml.FXML
+    private Button btnvercopiaselect;
 
     /**
      * Inicializa el controlador.
      *
-     * @param url la URL utilizada para resolver rutas relativas.
+     * @param url            la URL utilizada para resolver rutas relativas.
      * @param resourceBundle el conjunto de recursos utilizado para localizar el objeto raíz.
      */
     @Override
@@ -69,7 +88,7 @@ public class CopiaPeliController implements Initializable {
             Copia seleccionada = table.getSelectionModel().getSelectedItem();
             if (seleccionada != null) {
 
-                Session.currentPelicula = seleccionada.getPelicula();
+                currentPelicula = seleccionada.getPelicula();
                 if (event.getClickCount() == 2) {
 
                     HelloApplication.loadFXML("/org.example.jfxhibernate/resources/views/usuario/Modificar-view.fxml",
@@ -87,7 +106,7 @@ public class CopiaPeliController implements Initializable {
      */
     private void tableRefresh() {
         table.getItems().clear();
-        new CopiaDao(HibernateUtil.getSessionFactory()).findByUser(Session.currentUser).forEach((g)->{
+        new CopiaDao(HibernateUtil.getSessionFactory()).findByUser(Session.currentUser).forEach((g) -> {
             table.getItems().add(g);
         });
     }
@@ -129,7 +148,7 @@ public class CopiaPeliController implements Initializable {
      */
     @javafx.fxml.FXML
     public void añadir(ActionEvent actionEvent) {
-        HelloApplication.loadFXML("/org.example.jfxhibernate/resources/views/usuario/crear-copia-view.fxml","ir a crear copia - ");
+        HelloApplication.loadFXML("/org.example.jfxhibernate/resources/views/usuario/crear-copia-view.fxml", "ir a crear copia - ");
     }
 
     /**
@@ -149,8 +168,8 @@ public class CopiaPeliController implements Initializable {
      */
     @javafx.fxml.FXML
     public void login(ActionEvent actionEvent) {
-        Session.currentUser=null;
-        HelloApplication.loadFXML("/org.example.jfxhibernate/resources/views/login-view.fxml","Login");
+        Session.currentUser = null;
+        HelloApplication.loadFXML("/org.example.jfxhibernate/resources/views/login-view.fxml", "Login");
     }
 
     /**
@@ -160,6 +179,57 @@ public class CopiaPeliController implements Initializable {
      */
     @javafx.fxml.FXML
     public void detalle(ActionEvent actionEvent) {
-        HelloApplication.loadFXML("/org.example.jfxhibernate/resources/views/Ver-Peliculas-view.fxml","Detalle de la copia");
+        HelloApplication.loadFXML("/org.example.jfxhibernate/resources/views/Ver-Peliculas-view.fxml", "Detalle de la copia");
     }
-}
+
+    /**
+     * Genera un informe con los datos de la copia seleccionada.
+     * @param actionEvent
+     */
+    @javafx.fxml.FXML
+    public void verCopiaselect(ActionEvent actionEvent) {
+
+        Copia seleccionada = table.getSelectionModel().getSelectedItem();
+
+        if (seleccionada != null) {
+
+            HashMap<String, Object> parametros = new HashMap<>();
+            parametros.put("Copia", Long.valueOf(seleccionada.getId()));
+
+            try {
+
+                Connection connection = HibernateUtil.getSessionFactory().openSession().doReturningWork(
+                        connectionProvider -> connectionProvider
+                );
+
+                JasperPrint jp = JasperFillManager.fillReport("CopiasSelecionadas.jasper", parametros, connection);
+                JasperExportManager.exportReportToPdfFile(jp, "Copia.pdf");
+                JasperViewer.viewReport(jp, false);
+
+                connection.close();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                mostrarAlerta("Error", "No se pudo generar el informe.");
+            }
+        } else {
+            mostrarAlerta("Copia no seleccionada", "Por favor, selecciona una copia de la tabla.");
+        }
+    }
+
+    /**
+     * Muestra una alerta con el título y mensaje especificados.
+     * @param titulo
+     * @param mensaje
+     */
+
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.WARNING);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
+    }
+
+    }
+

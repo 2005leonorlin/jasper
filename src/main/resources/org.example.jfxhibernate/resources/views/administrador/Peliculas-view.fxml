@@ -48,8 +48,11 @@
             </TableView>
             <FlowPane alignment="CENTER_RIGHT" hgap="10.0" prefHeight="41.0" prefWidth="600.0">
                <children>
-                  <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminapelicula" prefHeight="21.0" prefWidth="85.0" text="Eliminar" />
-                  <Button fx:id="btnAñadir" mnemonicParsing="false" onAction="#añadir" prefHeight="25.0" prefWidth="77.0" text="Añadir" />
+                  <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminapelicula" prefHeight="27.0" prefWidth="63.0" text="Eliminar" />
+                  <Button fx:id="btnAñadir" mnemonicParsing="false" onAction="#añadir" prefHeight="27.0" prefWidth="56.0" text="Añadir" />
+                  <Button fx:id="btnListadoCompleto" mnemonicParsing="false" onAction="#listadocompletopeli" prefHeight="27.0" prefWidth="122.0" text="LIstado Completo" />
+                  <Button fx:id="btnCopiamalestado" mnemonicParsing="false" onAction="#copiamalestado" prefHeight="27.0" prefWidth="111.0" text="Copia mal estado" />
+                  <Button fx:id="btnpelimasdeunacopia" mnemonicParsing="false" onAction="#pelimasdeunacopia" prefHeight="27.0" prefWidth="147.0" text="Peli más de una copia" />
                </children>
                <padding>
                   <Insets right="10.0" top="10.0" />

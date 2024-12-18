@@ -6,9 +6,13 @@ module org.example.jfxhibernate {
     requires org.hibernate.orm.core;
 
     requires java.naming;
-requires jakarta.persistence;
+    requires jakarta.persistence;
     requires java.desktop;
     requires javafx.media;
+
+    requires net.sf.jasperreports.core;
+
+
 
 
     opens org.example.jfxhibernate.models;
