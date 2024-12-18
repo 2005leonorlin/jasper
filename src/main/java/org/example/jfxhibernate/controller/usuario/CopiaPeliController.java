@@ -218,7 +218,7 @@ public class CopiaPeliController implements Initializable {
     }
 
     /**
-     * Muestra una alerta con el título y mensaje especificados..
+     * Muestra una alerta con el título y mensaje especificados.
 
      */
 
