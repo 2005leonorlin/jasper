@@ -175,7 +175,7 @@ public class CopiaPeliController implements Initializable {
     /**
      * Navega a la vista de detalles de la copias..
      *
-     * @param actionEvent el evento de acción que desencadena este método..
+     * @param actionEvent el evento de acción que desencadena este método.
      */
     @javafx.fxml.FXML
     public void detalle(ActionEvent actionEvent) {
