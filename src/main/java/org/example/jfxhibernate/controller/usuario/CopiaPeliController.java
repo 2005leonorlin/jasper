@@ -173,7 +173,7 @@ public class CopiaPeliController implements Initializable {
     }
 
     /**
-     * Navega a la vista de detalles de la copias.
+     * Navega a la vista de detalles de la copias..
      *
      * @param actionEvent el evento de acción que desencadena este método..
      */
